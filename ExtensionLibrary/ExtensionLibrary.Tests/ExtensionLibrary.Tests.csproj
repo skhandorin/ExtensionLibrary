@@ -55,6 +55,7 @@
     <Compile Include="Demo1\EnumExtensionsTests.cs" />
     <Compile Include="Demo1\ExceptionExtensionsTests.cs" />
     <Compile Include="Demo2\Map.cs" />
+    <Compile Include="Demo2\MapTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

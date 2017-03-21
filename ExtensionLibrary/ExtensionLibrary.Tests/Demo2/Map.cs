@@ -32,5 +32,11 @@ namespace ExtensionLibrary.Tests.Demo2
             targetAccessor.SetValue(Target, sourceValue(Source));
             return this;
         }
+
+        public Map<TSource, TTarget> Populate<T>(Func<TTarget, T> targetAccessor, Func<TSource, T> sourceValue)
+        {
+            return this;
+        }
+
     }
 }
