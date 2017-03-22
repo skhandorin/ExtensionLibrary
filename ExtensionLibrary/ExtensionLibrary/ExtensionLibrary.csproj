@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Demo1\EnumExtensions.cs" />
     <Compile Include="Demo1\ExceptionExtensions.cs" />
+    <Compile Include="Demo2\LambdaExpressionExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

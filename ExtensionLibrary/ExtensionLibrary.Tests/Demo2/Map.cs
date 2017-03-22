@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,8 +34,10 @@ namespace ExtensionLibrary.Tests.Demo2
             return this;
         }
 
-        public Map<TSource, TTarget> Populate<T>(Func<TTarget, T> targetAccessor, Func<TSource, T> sourceValue)
+        public Map<TSource, TTarget> Populate<T>(Expression<Func<TTarget, T>> targetAccessor, Func<TSource, T> sourceValue)
         {
+            var targetPropertyInfo = targetAccessor.ToPropertyInfo();
+            targetPropertyInfo.SetValue(Target, sourceValue(Source));
             return this;
         }
 

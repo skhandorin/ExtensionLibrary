@@ -12,7 +12,7 @@ namespace ExtensionLibrary.Tests.Demo2
 
     public class UserModel
     {
-        public string Name { get; set; }
+        public string FullName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public int Age { get; set; }
     }
@@ -32,11 +32,11 @@ namespace ExtensionLibrary.Tests.Demo2
 
             var map = new Map<User, UserModel>(source);
             map.Populate("DateOfBirth", "BirthDate")
-                .Populate("Name", s => s.FirstName + " " + s.LastName)
+                .Populate("FullName", s => s.FirstName + " " + s.LastName)
                 .Populate("Age", s => (int)DateTime.Today.Subtract(s.BirthDate).TotalDays / 365);
 
             var target = map.Target;
-            Assert.AreEqual("Elton Stoneman", target.Name);
+            Assert.AreEqual("Elton Stoneman", target.FullName);
             Assert.AreEqual(source.BirthDate, target.DateOfBirth);
             Assert.AreEqual(37, target.Age);
         }
@@ -53,11 +53,11 @@ namespace ExtensionLibrary.Tests.Demo2
 
             var map = new Map<User, UserModel>(source);
             map.Populate(t => t.DateOfBirth, s => s.BirthDate)
-                .Populate(t => t.Name, s => s.FirstName + " " + s.LastName)
+                .Populate(t => t.FullName, s => s.FirstName + " " + s.LastName)
                 .Populate(t => t.Age, s => (int)DateTime.Today.Subtract(s.BirthDate).TotalDays / 365);
 
             var target = map.Target;
-            Assert.AreEqual("Elton Stoneman", target.Name);
+            Assert.AreEqual("Elton Stoneman", target.FullName);
             Assert.AreEqual(source.BirthDate, target.DateOfBirth);
             Assert.AreEqual(37, target.Age);
         }
